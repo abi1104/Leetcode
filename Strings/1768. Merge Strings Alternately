@@ -1,0 +1,27 @@
+https://leetcode.com/problems/merge-strings-alternately/?envType=study-plan-v2&envId=leetcode-75
+
+
+class Solution {
+    public String mergeAlternately(String word1, String word2) {
+        StringBuilder sb=new StringBuilder();
+        int l1=word1.length();
+        int l2=word2.length();
+        int m=Math.min(l1,l2);
+        for(int i=0;i<m;i++)
+        {
+            sb.append(word1.charAt(i));
+            sb.append(word2.charAt(i));
+        }
+        if(l1>m)
+        {
+            sb.append(word1.substring(m,l1));
+        }
+        if(l2>m)
+        {
+            sb.append(word2.substring(m,l2));
+        }
+        
+
+        return sb.toString();
+    }
+}
