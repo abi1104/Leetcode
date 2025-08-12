@@ -1,0 +1,41 @@
+https://leetcode.com/problems/reverse-vowels-of-a-string/solutions/7054866/reverse-vowels-of-a-string-two-pointers-approach/?envType=study-plan-v2&envId=leetcode-75
+
+class Solution {
+    public boolean isvowel(char ch)
+    {
+        ch=Character.toLowerCase(ch);
+        if(ch=='a'||ch=='e'||ch=='i'||ch=='o'||ch=='u')
+        {
+            return true;
+        }
+        return false;
+    }
+    public String reverseVowels(String s) {
+        StringBuilder sb=new StringBuilder(s);
+        int low=0;
+        int high=s.length()-1;
+        while(low<high)
+        {
+            
+            if(!isvowel(sb.charAt(low)))
+            {
+                low++;
+            }
+            else if(!isvowel(sb.charAt(high)))
+            {
+                high--;
+            }
+            else
+            {
+                char temp=sb.charAt(low);
+                sb.setCharAt(low,sb.charAt(high));
+                sb.setCharAt(high,temp);
+                low++;
+                high--;
+            }
+            
+        }
+        return sb.toString();
+        
+    }
+}
